@@ -13,7 +13,7 @@ const InputBox = Styled.input`
 interface Props {
   readonly placeholder?: string;
   readonly onChange?: (text: string) => void;
-  readonly value: string;
+  readonly value?: string;
 }
 
 export const Input = ({
