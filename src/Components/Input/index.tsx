@@ -13,11 +13,13 @@ const InputBox = Styled.input`
 interface Props {
   readonly placeholder?: string;
   readonly onChange?: (text: string) => void;
+  readonly value: string;
 }
 
 export const Input = ({
   placeholder = "할 일을 입력해주세요",
   onChange,
+  value,
 }: Props) => {
   return (
     <InputBox
@@ -27,6 +29,7 @@ export const Input = ({
           onChange(event.target.value);
         }
       }}
+      value={value}
     />
   );
 };
