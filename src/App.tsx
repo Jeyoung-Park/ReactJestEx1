@@ -51,7 +51,7 @@ const App = () => {
   return (
     <Container>
       <Contents>
-        <TodoListContainer>
+        <TodoListContainer data-testid='todoList'>
           {todoList.map((item, index) => (
             <TodoItem
               key={item}
@@ -63,7 +63,7 @@ const App = () => {
 
         <InputContainer>
           <Input
-            placeholder="할 일을 입력해주세요"
+            placeholder="할 일을 입력해 주세요"
             onChange={(text) => setTodo(text)}
             value={todo}
           />
