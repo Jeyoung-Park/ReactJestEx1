@@ -17,24 +17,41 @@ const Label = Styled.div`
     margin-right:20px;
 `;
 
-interface Props{
-    readonly label: string;
-    readonly onDelete?: ()=>void;
+interface Props {
+  readonly label: string;
+  readonly onDelete?: () => void;
 }
 
-export const TodoItem = ({
-    label, 
-    onDelete
-}:Props) => {
-  return (
-    <Container>
-      <Label>{label}</Label>
-      <Button
-        label="삭제"
-        backgroundColor="#FF1744"
-        hoverColor="#F01440"
-        onClick={onDelete}
-      />
-    </Container>
-  );
-};
+// export const TodoItem = ({
+//     label,
+//     onDelete
+// }:Props) => {
+//   return (
+//     <Container>
+//       <Label>{label}</Label>
+//       <Button
+//         label="삭제"
+//         backgroundColor="#FF1744"
+//         hoverColor="#F01440"
+//         onClick={onDelete}
+//       />
+//     </Container>
+//   );
+// };
+
+export class TodoItem extends React.Component<Props> {
+  render() {
+    const { label, onDelete } = this.props;
+    return (
+      <Container>
+        <Label>{label}</Label>
+        <Button
+          label="삭제"
+          backgroundColor="#FF1744"
+          hoverColor="#F01440"
+          onClick={onDelete}
+        />
+      </Container>
+    );
+  }
+}
