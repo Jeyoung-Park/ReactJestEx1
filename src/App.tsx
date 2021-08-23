@@ -88,7 +88,7 @@ class App extends React.Component<Props, State> {
           </TodoListContainer>
           <InputContainer>
             <Input
-              placeholder="항 일을 입력해 주세요"
+              placeholder="할 일을 입력해 주세요"
               value={todo}
               onChange={(text) => this.setState({ todo: text })}
             />
