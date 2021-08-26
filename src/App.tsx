@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import Styled from "styled-components";
-import { Button, Input, TodoItem, InputContainer, TodoList } from "./Components";
+import {
+  Button,
+  Input,
+  TodoItem,
+  InputContainer,
+  TodoList,
+} from "./Components";
+import { TodoListProvider } from "./Contexts";
 
 const Container = Styled.div`
   min-heigth: 100vh;
@@ -23,43 +30,47 @@ const Contents = Styled.div`
 //   display:flex;
 // `;
 
-const TodoListContainer = Styled.div`
-  min-width: 350px;
-  height: 400px;
-  overflow-y:scroll;
-  border:1px solid #BDBDBD;
-  margin-bottom: 20px;
-`;
+// const TodoListContainer = Styled.div`
+//   min-width: 350px;
+//   height: 400px;
+//   overflow-y:scroll;
+//   border:1px solid #BDBDBD;
+//   margin-bottom: 20px;
+// `;
 
 const App = () => {
-  const [todo, setTodo] = useState("");
-  const [todoList, setTodoList] = useState<string[]>([]);
+  // const [todo, setTodo] = useState("");
+  // const [todoList, setTodoList] = useState<string[]>([]);
 
-  const addTodo = (): void => {
-    if (todo) {
-      setTodoList([...todoList, todo]);
-      setTodo("");
-    }
-  };
+  // const addTodo = (): void => {
+  //   if (todo) {
+  //     setTodoList([...todoList, todo]);
+  //     setTodo("");
+  //   }
+  // };
 
-  const deleteTodo = (index: number): void => {
-    let list = [...todoList];
-    list.splice(index, 1);
-    setTodoList(list);
-  };
+  // const deleteTodo = (index: number): void => {
+  //   let list = [...todoList];
+  //   list.splice(index, 1);
+  //   setTodoList(list);
+  // };
 
   return (
-    <Container>
-      <Contents>
-        <TodoList todoList={todoList} deleteTodo={deleteTodo} />
+    <TodoListProvider>
+      <Container>
+        <Contents>
+          {/* <TodoList todoList={todoList} deleteTodo={deleteTodo} />
 
-        <InputContainer
-          todo={todo}
-          onChange={(text:string) => setTodo(text)}
-          onAdd={addTodo}
-        />
-      </Contents>
-    </Container>
+          <InputContainer
+            todo={todo}
+            onChange={(text: string) => setTodo(text)}
+            onAdd={addTodo}
+          /> */}
+          <TodoList />
+          <InputContainer />
+        </Contents>
+      </Container>
+    </TodoListProvider>
   );
 };
 
