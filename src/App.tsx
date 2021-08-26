@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Styled from "styled-components";
-import { Button, Input, TodoItem } from "./Components";
+import { Button, Input, TodoItem, InputContainer } from "./Components";
 
 const Container = Styled.div`
   min-heigth: 100vh;
@@ -19,9 +19,9 @@ const Contents = Styled.div`
   box-shadow:5px 5px 10px rgba(0, 0, 0, 0.2);
 `;
 
-const InputContainer = Styled.div`
-  display:flex;
-`;
+// const InputContainer = Styled.div`
+//   display:flex;
+// `;
 
 const TodoListContainer = Styled.div`
   min-width: 350px;
@@ -51,7 +51,7 @@ const App = () => {
   return (
     <Container>
       <Contents>
-        <TodoListContainer data-testid='todoList'>
+        <TodoListContainer data-testid="todoList">
           {todoList.map((item, index) => (
             <TodoItem
               key={item}
@@ -61,19 +61,11 @@ const App = () => {
           ))}
         </TodoListContainer>
 
-        <InputContainer>
-          <Input
-            placeholder="할 일을 입력해 주세요"
-            onChange={(text) => setTodo(text)}
-            value={todo}
-          />
-          <Button
-            label="추가"
-            backgroundColor="red"
-            hoverColor="green"
-            onClick={addTodo}
-          />
-        </InputContainer>
+        <InputContainer
+          todo={todo}
+          onChange={(text:string) => setTodo(text)}
+          onAdd={addTodo}
+        />
       </Contents>
     </Container>
   );
