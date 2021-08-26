@@ -3,14 +3,14 @@
 exports[`<App /> renders components correctly 1`] = `
 .c5 {
   text-align: center;
-  background-color: #304FFE;
+  background-color: red;
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
 }
 
 .c5:hover {
-  background-color: #1E40FF;
+  background-color: green;
 }
 
 .c5:active {
