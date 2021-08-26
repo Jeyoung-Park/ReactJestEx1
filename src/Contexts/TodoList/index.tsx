@@ -1,5 +1,5 @@
 import { JSX_TYPES } from "@babel/types";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { TodoList } from "../../Components";
 
 interface Context {
@@ -24,15 +24,25 @@ const TodoListProvider = ({ children }: Props) => {
 
   const addTodo = (todo: string): void => {
     if (todo) {
-      setTodoList([...todoList, todo]);
+      const newList = [...todoList, todo];
+      localStorage.setItem("TodoList", JSON.stringify(newList));
+      setTodoList(newList);
     }
   };
 
   const deleteTodo = (index: number): void => {
     let list = [...todoList];
     list.splice(index, 1);
+    localStorage.setItem("TodoList", JSON.stringify(list));
     setTodoList(list);
   };
+
+  useEffect(() => {
+    const list = localStorage.getItem("TodoList");
+    if (list) {
+      setTodoList(JSON.parse(list));
+    }
+  }, []);
 
   return (
     <TodoListContext.Provider
