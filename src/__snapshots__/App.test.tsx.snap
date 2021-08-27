@@ -3,14 +3,14 @@
 exports[`<App /> renders components correctly 1`] = `
 .c5 {
   text-align: center;
-  background-color: red;
+  background-color: #304FFE;
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
 }
 
 .c5:hover {
-  background-color: green;
+  background-color: #1E40FF;
 }
 
 .c5:active {
@@ -31,6 +31,21 @@ exports[`<App /> renders components correctly 1`] = `
   border-radius: 8px;
   border: 1px solid #BDBDBD;
   outline: none;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c2 {
+  min-width: 350px;
+  height: 400px;
+  overflow-y: scroll;
+  border: 1px solid #BDBDBD;
+  margin-bottom: 20px;
 }
 
 .c0 {
@@ -64,21 +79,6 @@ exports[`<App /> renders components correctly 1`] = `
   padding: 20px;
   border-radius: 8px;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c2 {
-  min-width: 350px;
-  height: 400px;
-  overflow-y: scroll;
-  border: 1px solid #BDBDBD;
-  margin-bottom: 20px;
 }
 
 <div>
