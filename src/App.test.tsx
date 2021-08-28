@@ -63,4 +63,15 @@ describe("<App />", () => {
 
     expect(todoList.childElementCount).toBe(length);
   });
+
+  // 로컬 스토리지에 데이터 추가한 뒤 잘 추가되었는지 확인하는 테스트
+  it("loads localStorage data", () => {
+    localStorage.setItem("TodoList", '["Todo 1", "Todo 2", "Todo 3"]');
+    render(<App />);
+
+    expect(screen.getByText("Todo 1")).toBeInTheDocument();
+    expect(screen.getByText("Todo 2")).toBeInTheDocument();
+    expect(screen.getByText("Todo 3")).toBeInTheDocument();
+    expect(screen.getAllByText("삭제").length).toBe(3);
+  });
 });
